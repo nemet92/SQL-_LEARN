@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loginsql/login_page.dart';
+import 'package:loginsql/gridview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: "SQl Database",
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: Gridview1(),
     );
   }
 }
