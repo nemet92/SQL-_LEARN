@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:loginsql/KatagorilerModel.dart';
-import 'package:loginsql/katagorilerApi.dart';
+
+import 'katagorilerApi.dart';
 
 class Gridview1 extends StatefulWidget {
   const Gridview1({super.key});
@@ -13,26 +14,31 @@ class Gridview1 extends StatefulWidget {
 
 class _Gridview1State extends State<Gridview1> {
   List<KatagoriModel> modelim = [];
+  // List<KatagorilerApi> modelli = [];
 
   @override
   void initState() {
     super.initState();
     KatagorilerApi api = KatagorilerApi();
-    api.getKategoriler();
-
+    // api.getKategoriler();
+    api.getKatagoriler();
+    // print("api print$api");
     String jsonText =
         "[ { \"id\": 2, \"ad\": \"Icecekler\", \"aktif\": true }, { \"id\": 5, \"ad\": \"Yiyeceler\", \"aktif\": true }, { \"id\": 6, \"ad\": \"Yiyecelerd\", \"aktif\": true } ]";
 
-    List<KatagoriModel> modelim = (jsonDecode(jsonText) as List)
+    modelim = (jsonDecode(jsonText) as List)
         .map((e) => KatagoriModel.fromJson(e))
         .toList();
-    for (var element in modelim) {
-      // print("${element.ad!}***");
-    }
+    // for (var element in modelim) {
+    //   // print("${element.ad!}***");
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
+    // KatagorilerApi api = KatagorilerApi();
+    // api.getKatagoriler;
+    // List<KatagoriModel> modelli = [];
     return Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
@@ -72,7 +78,7 @@ class _Gridview1State extends State<Gridview1> {
                         ),
                         Expanded(
                           flex: 30,
-                          child: Text("${model.ad!} $index"),
+                          child: Text("${model.ad} $index"),
                         ),
                         Expanded(
                           flex: 20,
